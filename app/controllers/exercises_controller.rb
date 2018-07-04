@@ -1,4 +1,5 @@
 class ExercisesController < ApplicationController
+  before_action :tmp_no_edit, only: [:create, :update, :destroy]
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
 
   # GET /exercises
