@@ -12,7 +12,7 @@ require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 
 set :application_name, 'workout'
 set :domain, 'greip'
-set :deploy_to, '/home/shaun/sites/workout2'
+set :deploy_to, '/home/shaun/sites/workout'
 set :repository, 'https://github.com/GinBlades/workout2'
 set :branch, 'master'
 
@@ -25,8 +25,9 @@ set :branch, 'master'
 # Some plugins already add folders to shared_dirs like `mina/rails` add `public/assets`, `vendor/bundle` and many more
 # run `mina -d` to see all folders and files already included in `shared_dirs` and `shared_files`
 set :shared_dirs, fetch(:shared_dirs, []).push('tmp')
-# set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
+set :shared_files, fetch(:shared_files, []).push('config/master.key')
 
+set :bundle_path, "~/bundle/#{RUBY_VERSION}"
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
 task :remote_environment do
