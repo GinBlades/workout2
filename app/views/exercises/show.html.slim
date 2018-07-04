@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Exercise set:
+  = @exercise.exercise_set
+p
+  strong Name:
+  = @exercise.name
+p
+  strong Description:
+  = @exercise.description
+p
+  strong Duration:
+  = @exercise.duration
+p
+  strong Position:
+  = @exercise.position
+p
+  strong Rest:
+  = @exercise.rest
+
+=> link_to 'Edit', edit_exercise_path(@exercise)
+'|
+=< link_to 'Back', exercises_path

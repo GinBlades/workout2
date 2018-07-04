@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @exercise_set.name
+p
+  strong Description:
+  = @exercise_set.description
+p
+  strong User:
+  = @exercise_set.user
+
+=> link_to 'Edit', edit_exercise_set_path(@exercise_set)
+'|
+=< link_to 'Back', exercise_sets_path

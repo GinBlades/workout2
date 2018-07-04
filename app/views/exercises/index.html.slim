@@ -1,0 +1,31 @@
+h1 Listing exercises
+
+table
+  thead
+    tr
+      th Exercise set
+      th Name
+      th Description
+      th Duration
+      th Position
+      th Rest
+      th
+      th
+      th
+
+  tbody
+    - @exercises.each do |exercise|
+      tr
+        td = exercise.exercise_set
+        td = exercise.name
+        td = exercise.description
+        td = exercise.duration
+        td = exercise.position
+        td = exercise.rest
+        td = link_to 'Show', exercise
+        td = link_to 'Edit', edit_exercise_path(exercise)
+        td = link_to 'Destroy', exercise, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Exercise', new_exercise_path
