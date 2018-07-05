@@ -1,15 +1,30 @@
 p#notice = notice
+- exercises = @exercise_set.exercises.order(:position)
 
-p
-  strong Name:
-  = @exercise_set.name
-p
-  strong Description:
-  = @exercise_set.description
-p
-  strong User:
-  = @exercise_set.user
+h1.title= @exercise_set.name
+p.subtitle By #{@exercise_set.user}
 
-=> link_to 'Edit', edit_exercise_set_path(@exercise_set)
-'|
-=< link_to 'Back', exercise_sets_path
+= @exercise_set.description
+
+.columns
+  .column
+    button.button.is-success#start Start
+    button.button.is-warning#pause Pause
+    section.section
+      #runner data-exercises=exercises.to_json
+  .column
+    table
+      thead
+        tr
+          th Name
+
+      tbody
+        - exercises.each do |exercise|
+          tr
+            td = exercise.name
+
+audio#tick-sound
+  source src="/metronome.mp3" type="audio/mpeg"
+
+audio#switch
+  source src="/switch.mp3" type="audio/mpeg"

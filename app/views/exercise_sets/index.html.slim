@@ -1,6 +1,6 @@
 h1 Listing exercise_sets
 
-table
+table.table
   thead
     tr
       th Name
@@ -8,17 +8,15 @@ table
       th User
       th
       th
-      th
 
   tbody
     - @exercise_sets.each do |exercise_set|
       tr
-        td = exercise_set.name
+        td = link_to exercise_set.name, exercise_set
         td = exercise_set.description
         td = exercise_set.user
-        td = link_to 'Show', exercise_set
         td = link_to 'Edit', edit_exercise_set_path(exercise_set)
-        td = link_to 'Destroy', exercise_set, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Delete', exercise_set, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 

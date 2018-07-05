@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Workout</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <head>
+        <title>Workout</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <body>
-    <%= yield %>
-  </body>
+        <%= stylesheet_link_tag    'application', media: 'all' %>
+    </head>
+
+    <body>
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+                    <div class="column">
+                        <%= link_to "Sets", exercise_sets_path %>
+                    </div>
+                    <div class="column">
+                        <%= link_to "Users", users_path %>
+                    </div>
+                </div>
+                <%= yield %>
+            </div>
+        </section>
+        <%= javascript_include_tag 'application' %>
+    </body>
 </html>
