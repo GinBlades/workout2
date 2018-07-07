@@ -6,7 +6,7 @@ class CreateExerciseSets < ActiveRecord::Migration[5.2]
       t.belongs_to :user, foreign_key: true, null: false
 
       t.timestamps
-      t.index [:name, :user_id], unique: true
+      t.index %i[name user_id], unique: true
     end
   end
 end

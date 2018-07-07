@@ -1,6 +1,6 @@
 class ExerciseSetsController < ApplicationController
-  before_action :tmp_no_edit, only: [:create, :update, :destroy]
-  before_action :set_exercise_set, only: [:show, :edit, :update, :destroy]
+  before_action :tmp_no_edit, only: %i[create update destroy]
+  before_action :set_exercise_set, only: %i[show edit update destroy]
 
   # GET /exercise_sets
   # GET /exercise_sets.json
@@ -29,7 +29,7 @@ class ExerciseSetsController < ApplicationController
 
     respond_to do |format|
       if @exercise_set.save
-        format.html { redirect_to @exercise_set, notice: 'Exercise set was successfully created.' }
+        format.html { redirect_to @exercise_set, notice: "Exercise set was successfully created." }
         format.json { render :show, status: :created, location: @exercise_set }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ExerciseSetsController < ApplicationController
   def update
     respond_to do |format|
       if @exercise_set.update(exercise_set_params)
-        format.html { redirect_to @exercise_set, notice: 'Exercise set was successfully updated.' }
+        format.html { redirect_to @exercise_set, notice: "Exercise set was successfully updated." }
         format.json { render :show, status: :ok, location: @exercise_set }
       else
         format.html { render :edit }
@@ -57,12 +57,13 @@ class ExerciseSetsController < ApplicationController
   def destroy
     @exercise_set.destroy
     respond_to do |format|
-      format.html { redirect_to exercise_sets_url, notice: 'Exercise set was successfully destroyed.' }
+      format.html { redirect_to exercise_sets_url, notice: "Exercise set was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_exercise_set
       @exercise_set = ExerciseSet.find(params[:id])

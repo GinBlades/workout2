@@ -1,6 +1,6 @@
 class ExercisesController < ApplicationController
-  before_action :tmp_no_edit, only: [:create, :update, :destroy]
-  before_action :set_exercise, only: [:show, :edit, :update, :destroy]
+  before_action :tmp_no_edit, only: %i[create update destroy]
+  before_action :set_exercise, only: %i[show edit update destroy]
 
   # GET /exercises
   # GET /exercises.json
@@ -29,7 +29,7 @@ class ExercisesController < ApplicationController
 
     respond_to do |format|
       if @exercise.save
-        format.html { redirect_to @exercise, notice: 'Exercise was successfully created.' }
+        format.html { redirect_to @exercise, notice: "Exercise was successfully created." }
         format.json { render :show, status: :created, location: @exercise }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ExercisesController < ApplicationController
   def update
     respond_to do |format|
       if @exercise.update(exercise_params)
-        format.html { redirect_to @exercise, notice: 'Exercise was successfully updated.' }
+        format.html { redirect_to @exercise, notice: "Exercise was successfully updated." }
         format.json { render :show, status: :ok, location: @exercise }
       else
         format.html { render :edit }
@@ -57,12 +57,13 @@ class ExercisesController < ApplicationController
   def destroy
     @exercise.destroy
     respond_to do |format|
-      format.html { redirect_to exercises_url, notice: 'Exercise was successfully destroyed.' }
+      format.html { redirect_to exercises_url, notice: "Exercise was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_exercise
       @exercise = Exercise.find(params[:id])
