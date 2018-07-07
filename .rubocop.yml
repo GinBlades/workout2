@@ -1,2 +1,5 @@
 inherit_from:
   - "~/.rails-rubocop.yml"
+
+Rails/BulkChangeTable:
+  Enabled: false

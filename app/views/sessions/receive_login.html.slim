@@ -1,0 +1,16 @@
+h1 Register in this application
+= simple_form_for(@user, url: save_login_path) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    dl
+      dt Username
+      dd= @user.username
+    input type="hidden" name="token" value=@token
+    = f.input :email
+    = f.input :first_name
+    = f.input :last_name
+
+  .form-actions
+    = f.button :submit

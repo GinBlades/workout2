@@ -1,0 +1,15 @@
+nav.level.is-mobile
+  p.level-item.has-text-centered
+    = link_to "Sets", exercise_sets_path, class: "link is-info"
+  p.level-item.has-text-centered
+    = link_to "Users", users_path, class: "link is-info"
+  - if current_user
+    p.level-item.has-text-centered
+      ' Logged in as
+      = link_to current_user.username, users_path(current_user), class: "link is-info"
+    p.level-item.has-text-centered
+      = link_to "Log Out", logout_path, class: "link is-info", method: :delete
+  p.level-item.has-text-centered
+    = link_to "Log In", login_path, class: "link is-info"
+  p.level-item.has-text-centered
+    = link_to "Register", register_path, class: "link is-info"

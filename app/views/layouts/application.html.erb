@@ -14,14 +14,7 @@
     <body>
         <section class="section">
             <div class="container">
-                <div class="columns">
-                    <div class="column">
-                        <%= link_to "Sets", exercise_sets_path %>
-                    </div>
-                    <div class="column">
-                        <%= link_to "Users", users_path %>
-                    </div>
-                </div>
+                <%= render "layouts/nav" %>
                 <%= yield %>
             </div>
         </section>
