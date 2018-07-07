@@ -27,3 +27,5 @@ gem "simple_form"
 gem "slim-rails"
 gem "sprockets"
 gem "sprockets-es6"
+
+gem "risk_connector", github: "GinBlades/risk_connector", tag: "1.0.0"
