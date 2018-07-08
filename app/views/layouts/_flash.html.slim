@@ -1,0 +1,8 @@
+.row
+  .col-sm
+    .flash
+      - flash.each do |key, val|
+        .alert.alert-warning.alert-dismissible.fade.show role=alert
+          = val
+          button.close type="button" data-dismiss="alert" aria-label="Close"
+            span aria-hidden="true" &times;

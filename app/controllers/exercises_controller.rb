@@ -1,5 +1,5 @@
 class ExercisesController < ApplicationController
-  before_action :tmp_no_edit, only: %i[create update destroy]
+  before_action :registered_only, only: %i[create update destroy]
   before_action :set_exercise, only: %i[show edit update destroy]
 
   # GET /exercises

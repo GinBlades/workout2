@@ -6,4 +6,8 @@ class User < ApplicationRecord
   def to_s
     email
   end
+
+  def self.approved_users
+    File.readlines(Rails.root.join("data", "approved_users.txt")).map(&:strip)
+  end
 end

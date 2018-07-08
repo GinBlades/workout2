@@ -12,12 +12,16 @@ class SessionsController < ApplicationController
 
   def receive_login
     @token = params[:token]
-    @user = User.find_by(@session_helper.username_hash(@token))
+    username_hash = @session_helper.username_hash(@token)
+    @user = User.find_by(username_hash)
     if @user
       session[:user_id] = @user.id
       redirect_to root_url
+    elsif User.approved_users.include?(username_hash["username"])
+      @user = User.new(username_hash)
     else
-      @user = User.new(@session_helper.username_hash(@token))
+      flash[:alert] = "Registration for this app is not currently available."
+      redirect_to root_url
     end
   end
 
